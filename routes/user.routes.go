@@ -14,7 +14,7 @@ func NewUserRouteController(userController controllers.UserController) UserRoute
 	return UserRouteController{userController}
 }
 
-func (uc *UserRouteController) UserRoute(rc *gin.RouterGroup) {
+func (uc *UserRouteController) UserRoute(rg *gin.RouterGroup) {
 
 	router := rg.Group("users")
 	router.GET("/me", middleware.DeserializeUser(), uc.userController.GetMe)
